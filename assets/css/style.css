@@ -75,9 +75,13 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 /* Sections */
 .section{padding:110px 0}
 .section-tight{padding:96px 0 72px}
+.section-flush{padding:0 0 110px}
+.section-flush-sm{padding:0 0 40px}
+.intro{max-width:720px}
 .section-alt{background:var(--bg-alt)}
 .section-head{max-width:640px;margin-bottom:56px}
 .two-col{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:80px;align-items:start}
+.two-col img{border-radius:4px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:32px}
 .stat-num{font-family:var(--serif);font-weight:600;font-variant-numeric:lining-nums tabular-nums;font-size:2.2rem;line-height:1;color:var(--accent-dark)}
 .stat-label{font-size:var(--text-meta);color:var(--muted);margin-top:6px}
@@ -107,6 +111,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 
 /* CTA */
 .cta{padding:110px 0;background:var(--bg-alt);text-align:center}
+.cta-spaced{margin-top:70px}
 .cta h2{font-size:2.7rem;line-height:1.16;margin:0 0 22px}
 .cta p{font-size:1.15rem;color:var(--text-2);margin:0 auto 36px;max-width:54ch}
 .cta .btn-row{justify-content:center}
@@ -129,6 +134,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 /* Contacts */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .contact-list{display:flex;flex-direction:column;gap:2px}
+.contact-lede{margin-bottom:40px;max-width:460px}
 .contact-row{display:flex;align-items:center;gap:18px;background:var(--surface);padding:22px 26px;border-radius:4px;color:inherit}
 .contact-row img{height:28px;width:28px}
 .contact-row strong{display:block;font-weight:500}
@@ -173,7 +179,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 
 /* Practice cards */
 .practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px}
-.practice-card{background:var(--surface);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.practice-card{background:var(--surface);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:100px}
 .practice-card>img{width:100%;height:220px;object-fit:cover}
 .practice-card .body{padding:32px 34px 36px;display:flex;flex-direction:column;flex:1}
 .practice-card .head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px}
@@ -191,6 +197,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
   .hero h1{font-size:2.4rem}
   .hero{min-height:auto}
   .section{padding:72px 0}
+  .section-flush{padding:0 0 72px}
   .two-col,.contact-grid{grid-template-columns:1fr;gap:40px}
   .service,.service.reverse{grid-template-columns:minmax(0,1fr);gap:0}
   .service-body{min-width:0}
@@ -215,6 +222,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
   h1,.hero h1{font-size:2rem}
   h2,.cta h2{font-size:1.75rem}
   .section,.quotes{padding:56px 0}
+  .section-flush{padding:0 0 56px}
   .stats{grid-template-columns:1fr 1fr;gap:20px}
   .steps,.quote-grid{gap:36px}
   .quote-grid blockquote{font-size:1.2rem}
