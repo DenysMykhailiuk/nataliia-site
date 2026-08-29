@@ -56,7 +56,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .site-nav a:not(.btn){color:#5d554d;font-size:var(--text-sm)}
 .site-nav .btn,.site-nav .btn:hover{color:var(--on-accent)}
 .site-nav a[aria-current="page"]{color:var(--text);border-bottom:1px solid var(--accent);padding-bottom:2px}
-.btn{display:inline-block;background:var(--accent-dark);color:var(--on-accent);padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:500}
+.btn{display:inline-block;text-align:center;background:var(--accent-dark);color:var(--on-accent);padding:15px 30px;border-radius:999px;font-size:1rem;font-weight:500}
 @media (hover:hover){.btn:hover{background:var(--accent);color:var(--on-accent)}}
 .btn-sm{padding:11px 22px;font-size:.92rem}
 .btn-ghost{background:none;border:1px solid #c2b3a2;color:#3b342e}
@@ -235,6 +235,14 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
   .practice-card .body{padding:24px 22px 28px}
   .service-title h2{font-size:1.5rem}
   .service-title,.practice-card .head{flex-wrap:wrap;gap:0 14px}
+}
+
+/* Below ~460px the two buttons in a .btn-row can no longer share a line: they
+   need 420px plus the container padding. Once wrapped they keep their natural
+   widths, which differ by ~23px and read as a mistake rather than a choice, so
+   stack them deliberately at full width instead. */
+@media (max-width:480px){
+  .btn-row{flex-direction:column;align-items:stretch}
 }
 
 /* Short landscape (phone held sideways): keep the header on one row */
