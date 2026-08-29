@@ -15,7 +15,16 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;font-size:17px;font-optical-sizing:auto;text-wrap:pretty;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;font-size:17px;font-optical-sizing:auto;text-wrap:pretty;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Browser surfaces — themed from the palette rather than left to UA defaults */
+::selection{background:#e5c0af;color:var(--text)}
+:focus-visible{outline:2px solid var(--accent-dark);outline-offset:3px}
+.hero :focus-visible,.quotes :focus-visible,.site-footer :focus-visible,.sticky-cta:focus-visible{outline-color:#fff}
+.skip-link{position:fixed;top:10px;left:10px;z-index:60;background:var(--accent-dark);color:#fff;
+  padding:12px 22px;border-radius:999px;font-size:.95rem;font-weight:500;clip-path:inset(50%)}
+.skip-link,.skip-link:hover,.skip-link:focus{color:#fff}
+.skip-link:focus{clip-path:none}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--accent-dark);text-decoration:none}
 a:hover{color:var(--accent)}
@@ -116,6 +125,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .contact-row img{height:28px;width:28px}
 .contact-row strong{display:block;font-weight:500}
 .contact-row small{display:block;font-size:.92rem;color:var(--muted)}
+.contact-text{flex:1;min-width:0;overflow-wrap:anywhere}
 .contact-icon{width:28px;text-align:center;font-family:var(--serif);font-size:1.5rem;color:var(--accent)}
 .contact-arrow{color:var(--accent)}
 .map-slot{width:100%;aspect-ratio:4/3;border:0;border-radius:4px;display:block;background:#e6ded2}
@@ -147,6 +157,17 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .site-footer details p{margin:10px 0 0;font-size:.92rem;color:#b8ada2}
 .footer-bottom{border-top:1px solid #4a423a;padding-top:24px;font-size:.88rem;color:#b09a86;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
+/* Practice cards */
+.practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px}
+.practice-card{background:var(--surface);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.practice-card>img{width:100%;height:220px;object-fit:cover}
+.practice-card .body{padding:32px 34px 36px;display:flex;flex-direction:column;flex:1}
+.practice-card .head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px}
+.practice-card .head span{font-family:var(--serif);font-size:1.1rem;color:var(--accent)}
+.practice-card .head h2{font-size:1.65rem;margin:0;line-height:1.2}
+.practice-card ul{margin:0 0 20px;padding-left:20px;color:var(--text-2)}
+.practice-card .meta{margin-top:auto;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);padding-top:16px}
+
 @media (max-width:900px){
   .site-header .container{flex-wrap:wrap}
   .site-nav{gap:20px;width:100%;justify-content:space-between}
@@ -157,12 +178,15 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
   .hero{min-height:auto}
   .section{padding:72px 0}
   .two-col,.contact-grid{grid-template-columns:1fr;gap:40px}
-  .service,.service.reverse{grid-template-columns:1fr;gap:0}
+  .service,.service.reverse{grid-template-columns:minmax(0,1fr);gap:0}
+  .service-body{min-width:0}
   .service img{min-height:240px}
   .service-body,.service.reverse .service-body{padding:32px 28px 36px}
   .service.reverse img{order:-1}
   .facts{padding:32px}
   .sticky-cta{right:16px;bottom:16px;padding:13px 20px}
+  .practice-card .body{padding:26px 24px 30px}
+  .practice-card .head h2{font-size:1.5rem}
 }
 
 @media (max-width:600px){
@@ -179,21 +203,11 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
   .stats{grid-template-columns:1fr 1fr;gap:20px}
   .steps,.quote-grid{gap:36px}
   .quote-grid blockquote{font-size:1.2rem}
-  .practice-grid,.tile-grid{grid-template-columns:1fr}
+  .practice-grid,.tile-grid,.quote-grid{grid-template-columns:1fr}
   .facts{padding:28px;gap:28px}
   .office-card{padding:26px}
   .service-body,.service.reverse .service-body{padding:28px 22px 32px}
   .practice-card .body{padding:24px 22px 28px}
+  .service-title h2{font-size:1.5rem}
+  .service-title,.practice-card .head{flex-wrap:wrap;gap:0 14px}
 }
-
-/* Practice cards */
-.practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px}
-.practice-card{background:var(--surface);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
-.practice-card>img{width:100%;height:220px;object-fit:cover}
-.practice-card .body{padding:32px 34px 36px;display:flex;flex-direction:column;flex:1}
-.practice-card .head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px}
-.practice-card .head span{font-family:var(--serif);font-size:1.1rem;color:var(--accent)}
-.practice-card .head h2{font-size:1.65rem;margin:0;line-height:1.2}
-.practice-card ul{margin:0 0 20px;padding-left:20px;color:var(--text-2)}
-.practice-card .meta{margin-top:auto;font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);padding-top:16px}
-@media (max-width:900px){.practice-card .body{padding:26px 24px 30px}.practice-card .head h2{font-size:1.5rem}}
