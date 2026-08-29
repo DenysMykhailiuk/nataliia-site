@@ -3,3 +3,10 @@
 # to GitHub Pages at www.nataliiamykhailiuk.com.
 .claude/
 .grok/
+
+# Internal design/product notes. Same reason: the repo root is the live
+# document root, so a committed PRODUCT.md would be served publicly at
+# /PRODUCT.md and indexed (robots.txt allows all).
+PRODUCT.md
+DESIGN.md
+.impeccable/
