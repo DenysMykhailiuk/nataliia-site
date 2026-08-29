@@ -1,0 +1,5 @@
+# Local AI-tooling config (impeccable design linter, agent harnesses).
+# Kept out of the repo because everything committed here is published
+# to GitHub Pages at www.nataliiamykhailiuk.com.
+.claude/
+.grok/
