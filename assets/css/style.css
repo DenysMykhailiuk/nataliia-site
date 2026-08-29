@@ -94,18 +94,6 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .cta p{font-size:1.15rem;color:var(--text-2);margin:0 0 36px}
 .cta .btn-row{justify-content:center}
 
-/* Accordions (practice) */
-.accordion{max-width:900px;margin:0 auto;padding:0 32px}
-.accordion details{border-top:1px solid var(--border);padding:28px 0}
-.accordion details:last-child{border-bottom:1px solid var(--border)}
-.accordion summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:20px}
-.accordion summary::-webkit-details-marker{display:none}
-.acc-num{font-family:var(--serif);font-size:1.2rem;color:var(--accent);min-width:32px}
-.acc-title{font-family:var(--serif);font-size:1.75rem;font-weight:500;line-height:1.2;flex:1}
-.acc-body{padding:20px 0 0 52px;max-width:660px;color:var(--text-2)}
-.acc-body ul{padding-left:20px}
-.acc-meta{font-size:.9rem;color:var(--muted);border-top:1px solid var(--border);padding-top:14px}
-
 /* Service rows */
 .service-list{display:flex;flex-direction:column;gap:48px}
 .service{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:56px;align-items:center;background:var(--surface);border-radius:4px;overflow:hidden}
@@ -172,8 +160,6 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
   .service img{min-height:240px}
   .service-body,.service.reverse .service-body{padding:32px 28px 36px}
   .service.reverse img{order:-1}
-  .acc-body{padding-left:0}
-  .acc-title{font-size:1.5rem}
   .facts{padding:32px}
   .sticky-cta{right:16px;bottom:16px;padding:13px 20px}
 }
