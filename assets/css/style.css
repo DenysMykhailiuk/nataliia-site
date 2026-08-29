@@ -5,7 +5,7 @@
   --text:#2a2521;
   --text-2:#544b43;
   --muted:#6b625a;
-  --accent:#8a6a5a;
+  --accent:#816152;
   --accent-dark:#6f5347;
   --border:#e2d9cc;
   --dark:#2f2a26;
@@ -117,6 +117,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .contact-row strong{display:block;font-weight:500}
 .contact-row small{display:block;font-size:.92rem;color:var(--muted)}
 .contact-icon{width:28px;text-align:center;font-family:var(--serif);font-size:1.5rem;color:var(--accent)}
+.contact-arrow{color:var(--accent)}
 .map-slot{width:100%;aspect-ratio:4/3;border:0;border-radius:4px;display:block;background:#e6ded2}
 .office-card{background:var(--surface);border-radius:4px;padding:32px;margin-top:2px}
 .facts{background:var(--bg-alt);border-radius:4px;padding:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
@@ -144,7 +145,7 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .site-footer summary{cursor:pointer;font-size:.97rem;list-style:none}
 .site-footer summary::-webkit-details-marker{display:none}
 .site-footer details p{margin:10px 0 0;font-size:.92rem;color:#b8ada2}
-.footer-bottom{border-top:1px solid #4a423a;padding-top:24px;font-size:.88rem;color:#8f857b;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom{border-top:1px solid #4a423a;padding-top:24px;font-size:.88rem;color:#b09a86;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 @media (max-width:900px){
   .site-header .container{flex-wrap:wrap}
