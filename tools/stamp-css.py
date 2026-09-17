@@ -22,8 +22,11 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CSS = ROOT / 'assets' / 'css' / 'style.css'
-PAGES = ['index.html', 'practice/index.html',
-         'services/index.html', 'contacts/index.html']
+# Discovered rather than listed: a hard-coded list silently skipped the first
+# page added after it was written, leaving that page on the stale stylesheet.
+PAGES = sorted(p.relative_to(ROOT).as_posix()
+               for p in ROOT.glob('**/index.html')
+               if not any(part.startswith('.') for part in p.relative_to(ROOT).parts))
 LINK = re.compile(r'(href="[^"]*assets/css/style\.css)(\?v=[0-9a-f]+)?"')
 
 

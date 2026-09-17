@@ -111,6 +111,16 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 .quote-grid figure{margin:0}
 .quote-grid blockquote{font-family:var(--serif);font-size:1.35rem;line-height:1.45;font-style:italic;margin:0 0 20px;color:#f5efe6}
 .quote-grid figcaption{font-size:var(--text-meta);color:var(--on-dark-muted)}
+.quotes .quotes-more{display:inline-block;margin-top:48px;color:#f0e9e0;border-bottom-color:var(--on-dark-muted)}
+@media (hover:hover){.quotes .quotes-more:hover{color:#fff;border-bottom-color:#f0e9e0}}
+
+/* Reviews page: long, uneven texts flow into balanced columns instead of a ragged grid */
+.review-list{column-width:420px;column-gap:28px}
+.review{break-inside:avoid;margin:0 0 28px;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:32px 34px 28px}
+.review blockquote{margin:0;font-family:var(--serif);line-height:1.65;color:var(--text)}
+.review blockquote p{margin:0 0 .85em}
+.review blockquote p:last-child{margin-bottom:0}
+.review figcaption{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:var(--text-meta);font-weight:500;color:var(--muted)}
 
 /* CTA */
 .cta{padding:110px 0;background:var(--bg-alt);text-align:center}
@@ -214,6 +224,8 @@ h2{font-size:2.45rem;line-height:1.2;margin:0 0 28px}
 }
 
 @media (max-width:600px){
+  .review{padding:24px 22px 22px;margin-bottom:20px}
+  .quotes .quotes-more{margin-top:36px}
   .container{padding-left:20px;padding-right:20px}
   .site-header .container{position:relative;padding-top:10px;padding-bottom:6px}
   .site-header .logo img{height:28px}
