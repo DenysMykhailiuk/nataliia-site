@@ -1,0 +1,94 @@
+{
+  "pkg": "nataliia-ds",
+  "globalName": "NataliiaDS",
+  "projectId": "17329132-702e-4d90-8bf5-d4ffec8a88e3",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "srcDir": "src",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": "dist/style.css",
+  "overrides": {
+    "Hero": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "SiteHeader": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "SiteFooter": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "CtaBand": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "QuoteWall": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "ServiceRow": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "ServiceList": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "PracticeGrid": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "TileGrid": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "StepList": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "ContactGrid": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "ContactList": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "FactGrid": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "TwoCol": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "ReviewList": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "StatRow": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "Section": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "Intro": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "Container": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    },
+    "Quote": {
+      "cardMode": "column",
+      "viewport": "1280x900"
+    }
+  },
+  "docsDir": ".design-sync/docs",
+  "readmeHeader": ".design-sync/conventions.md"
+}
