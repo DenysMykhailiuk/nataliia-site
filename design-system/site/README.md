@@ -1,7 +1,7 @@
 # Building the site from components
 
 `site/pages/*.jsx` is the website, written with the `nataliia-ds` components. It was
-generated once from the hand-written pages at commit `f08940e`. Since then these files are the
+generated once from the hand-written pages at commit `6afd0a4`. Since then these files are the
 source: edit them, not the HTML.
 
 ```bash

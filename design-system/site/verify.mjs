@@ -25,7 +25,7 @@ const git = (...a) => execFileSync('git', a, { cwd: SITE, maxBuffer: 64 << 20 })
 
 const refArg = process.argv.indexOf('--ref');
 // Not pages/builds/latest: that endpoint only records branch-published builds, and has been
-// frozen at f08940e since Pages moved to GitHub Actions.
+// frozen at the last branch-published build since Pages moved to GitHub Actions.
 const ref = git('rev-parse', refArg > 0 ? process.argv[refArg + 1] : 'origin/main').toString().trim();
 console.log(`reference: ${ref.slice(0, 7)} (${git('log', '-1', '--format=%s', ref).toString().trim()})`);
 
