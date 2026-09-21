@@ -10,8 +10,8 @@
 // files committed alongside it); otherwise the commit Pages last built (`gh api
 // …/pages/builds/latest`), falling back to origin/main. Exits 1 on any failure.
 //
-// design-system/ and .github/ are the tooling that builds and deploys the site. They are never
-// part of the website, so they are excluded from the reference file set.
+// design-system/, .github/ and .gitattributes are the tooling that builds and deploys the
+// site. They are never part of the website, so they are excluded from the reference file set.
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -34,7 +34,7 @@ if (!ref) ref = git('rev-parse', 'origin/main').toString().trim();
 ref = git('rev-parse', ref).toString().trim();
 console.log(`reference: ${ref.slice(0, 7)} (${git('log', '-1', '--format=%s', ref).toString().trim()})`);
 
-const NOT_SITE = /^(design-system|\.github)\//;
+const NOT_SITE = /^(design-system\/|\.github\/|\.gitattributes$)/;
 const tracked = git('ls-tree', '-r', '--name-only', ref).toString().trim().split('\n').filter((f) => !NOT_SITE.test(f));
 const built = (function walk(dir) {
   return readdirSync(dir).flatMap((f) => {

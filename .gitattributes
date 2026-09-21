@@ -1,0 +1,4 @@
+# Text files are LF in the working tree, not only in the repository. The stylesheet's ?v= stamp
+# is an MD5 of its bytes, and the site build is verified byte-for-byte against the deployed
+# files, so a CRLF checkout (core.autocrlf=true on Windows) silently changes both.
+* text=auto eol=lf
