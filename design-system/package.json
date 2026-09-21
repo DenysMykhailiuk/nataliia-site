@@ -1,0 +1,40 @@
+{
+  "name": "nataliia-ds",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React component library for the nataliiamykhailiuk.com practice site — wraps the site's own markup patterns and stylesheet.",
+  "type": "module",
+  "module": "./dist/index.es.js",
+  "main": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "fidelity": "npm run build && node scripts/fidelity.mjs",
+    "site": "npm run build && node site/build.mjs",
+    "site:verify": "npm run site && node site/verify.mjs --live"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "esbuild": "^0.25.10",
+    "jsdom": "^26.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  }
+}

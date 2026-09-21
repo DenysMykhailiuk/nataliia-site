@@ -1,0 +1,95 @@
+# Builds the site from design-system/ and deploys it to GitHub Pages — but only if the build is
+# byte-identical to the site files committed at the same commit. See design-system/site/README.md.
+#
+# Requires Settings → Pages → Source: "GitHub Actions". While Pages is still set to "Deploy
+# from a branch", GitHub would publish the whole branch as-is, design-system/ included.
+name: Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design-system
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: design-system/package-lock.json
+
+      - run: npm ci
+
+      - name: Build the site
+        run: npm run site
+
+      - name: Verify the build is byte-identical to the committed site files
+        run: node site/verify.mjs --ref HEAD
+
+      - name: Verify the components reproduce every page's DOM
+        run: npm run fidelity
+
+      - name: Upload the verified build
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: design-system/.site-dist
+          # The site serves /.nojekyll and /.gitignore today; without this they would vanish.
+          include-hidden-files: true
+
+  deploy:
+    name: Deploy
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
+
+  confirm:
+    name: Confirm the live site matches
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design-system
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: design-system/package-lock.json
+      - run: npm ci
+      - run: npm run site
+      - name: Compare every live page with the build
+        # The CDN can take a few minutes to serve a new deployment everywhere.
+        run: |
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            node site/verify.mjs --ref HEAD --live && exit 0
+            echo "attempt $attempt: live site not yet matching, retrying in 30s"
+            sleep 30
+          done
+          exit 1
