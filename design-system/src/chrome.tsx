@@ -21,7 +21,11 @@ export interface SiteHeaderProps {
   items?: NavItem[];
   /** `href` of the current page — marks it `aria-current` and underlines it. */
   current?: string;
-  /** The English word under the wordmark. An open brand decision — may become `Психотерапія`. */
+  /**
+   * The word under the wordmark. Deliberately English ("Psychotherapy") on an otherwise
+   * Ukrainian site — a settled brand choice that pairs it with the Latin-script name. Do not
+   * translate it.
+   */
   logoDescription?: string;
   ctaLabel?: string;
   ctaHref?: string;
