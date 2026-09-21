@@ -15,5 +15,6 @@ is always reachable. A sixth item needs re-measuring before it can be added.
 <SiteHeader current="/services/" />
 ```
 
-`logoDescription` is the word under the wordmark; it is an open brand decision between
-the English "Psychotherapy" and "Психотерапія".
+The word under the wordmark is **"Psychotherapy", in English, on purpose.** It is a settled
+brand choice. It pairs with the Latin-script name, even though everything else on the site is
+Ukrainian. Leave `logoDescription` at its default, and never translate it to "Психотерапія".
