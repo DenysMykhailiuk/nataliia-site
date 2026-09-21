@@ -7,8 +7,8 @@
 //      production site returns right now, fetched with a cache-busting query.
 //
 // Reference commit: `--ref <commit>` if given (CI passes HEAD, so the build must equal the site
-// files committed alongside it); otherwise the commit Pages last built (`gh api
-// …/pages/builds/latest`), falling back to origin/main. Exits 1 on any failure.
+// files committed alongside it); otherwise origin/main — what the Site workflow deploys. Run
+// `git fetch` first so that is current. Exits 1 on any failure.
 //
 // design-system/, .github/ and .gitattributes are the tooling that builds and deploys the
 // site. They are never part of the website, so they are excluded from the reference file set.
@@ -24,14 +24,9 @@ const LIVE = process.argv.includes('--live');
 const git = (...a) => execFileSync('git', a, { cwd: SITE, maxBuffer: 64 << 20 });
 
 const refArg = process.argv.indexOf('--ref');
-let ref = refArg > 0 ? process.argv[refArg + 1] : undefined;
-if (!ref) {
-  try {
-    ref = execFileSync('gh', ['api', 'repos/DenysMykhailiuk/nataliia-site/pages/builds/latest', '--jq', 'select(.status=="built") | .commit'], { encoding: 'utf8' }).trim();
-  } catch {}
-}
-if (!ref) ref = git('rev-parse', 'origin/main').toString().trim();
-ref = git('rev-parse', ref).toString().trim();
+// Not pages/builds/latest: that endpoint only records branch-published builds, and has been
+// frozen at f08940e since Pages moved to GitHub Actions.
+const ref = git('rev-parse', refArg > 0 ? process.argv[refArg + 1] : 'origin/main').toString().trim();
 console.log(`reference: ${ref.slice(0, 7)} (${git('log', '-1', '--format=%s', ref).toString().trim()})`);
 
 const NOT_SITE = /^(design-system\/|\.github\/|\.gitattributes$)/;
