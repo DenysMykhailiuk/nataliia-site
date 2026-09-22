@@ -16,6 +16,11 @@ npm run site:verify   # build, then prove it byte-identical to the deployed site
   site's own hand-formatted layout. The `<head>` comes from each page's `meta` export plus a
   fixed template in `build.mjs`. The stylesheet `?v=` stamp is computed the same way as
   `tools/stamp-css.py`: the first 8 hex of the MD5 of `style.css`.
+- **Page scripts.** A page's `meta.scripts` lists site files to load with `<script defer>`, each
+  stamped `?v=` with the first 8 hex of its own MD5, like the stylesheet. Only the homepage has
+  one: `assets/js/moon-path.js`, the hero's moonrise. It draws nothing at 900px wide or less, so
+  phones keep the plain hero, and it adds its canvas at runtime, so the page's DOM is unchanged.
+  A script must also be in the `STATIC` list to be published.
 - **Everything else** (assets, `CNAME`, `robots.txt`, `sitemap.xml`, `.nojekyll`, `tools/`)
   is copied byte for byte. The list in `build.mjs` is explicit on purpose.
 - **Output location.** Output goes to a dot-folder because `stamp-css.py` finds pages with

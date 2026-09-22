@@ -37,6 +37,7 @@ const PAGES = [
 const STATIC = [
   '.gitignore', '.nojekyll', 'CNAME', 'robots.txt', 'sitemap.xml',
   'assets/css/style.css',
+  'assets/js/moon-path.js',
   ...['bio.jpg', 'facebook-icon.png', 'hero.jpg', 'logo-dark.png', 'logo.png', 'telegram-icon.png',
     'tile-divorce.jpg', 'tile-parent-child.jpg', 'tile-personal-growth.jpg', 'tile-stress-anxiety.jpg',
     'tile-trauma.jpg', 'tile-work-stress.jpg', 'wordmark-dark.png'].map((f) => `assets/images/${f}`),
@@ -152,6 +153,11 @@ function head(meta, prefix) {
   // Same stamp tools/stamp-css.py writes: first 8 hex of the stylesheet's MD5.
   const stamp = createHash('md5').update(readFileSync(join(SITE, 'assets', 'css', 'style.css'))).digest('hex').slice(0, 8);
   lines.push(`<link rel="stylesheet" href="${prefix}assets/css/style.css?v=${stamp}">`);
+  // Page scripts, deferred and stamped the same way as the stylesheet so a change reaches visitors at once.
+  for (const src of meta.scripts || []) {
+    const v = createHash('md5').update(readFileSync(join(SITE, src))).digest('hex').slice(0, 8);
+    lines.push(`<script src="${prefix}${src}?v=${v}" defer></script>`);
+  }
   if (meta.jsonLd) lines.push('<script type="application/ld+json">', JSON.stringify(meta.jsonLd, null, 2), '</script>');
   return lines;
 }
