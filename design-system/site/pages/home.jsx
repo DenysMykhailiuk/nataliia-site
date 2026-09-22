@@ -7,6 +7,7 @@ export const meta = {
   "title": "Психотерапевт Наталія Михайлюк | Київ, Україна",
   "description": "Наталія Михайлюк — сертифікований гештальт-терапевт з 18-річним досвідом. Індивідуальна, сімейна та групова терапія у Києві та онлайн.",
   "preloadHero": true,
+  "scripts": ["assets/js/moon-path.js"],
   "jsonLd": {
     "@context": "https://schema.org",
     "@graph": [
