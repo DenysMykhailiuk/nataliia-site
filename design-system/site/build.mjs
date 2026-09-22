@@ -35,7 +35,7 @@ const PAGES = [
 // Every other file the site serves, copied verbatim. Kept explicit so an unexpected new file
 // at the site root is a visible decision rather than something silently published.
 const STATIC = [
-  '.gitignore', '.nojekyll', 'CNAME', 'robots.txt', 'sitemap.xml',
+  '.gitignore', '.nojekyll', 'CNAME', 'robots.txt', 'sitemap.xml', 'favicon.ico', 'apple-touch-icon.png',
   'assets/css/style.css',
   'assets/js/moon-path.js',
   ...['bio.jpg', 'facebook-icon.png', 'hero.jpg', 'logo-dark.png', 'logo.png', 'telegram-icon.png',
